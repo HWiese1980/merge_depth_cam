@@ -1,8 +1,10 @@
-# merge_depth_cam
+# merge_depth_cam (Robot Operating System Package)
 
 ## What is it?
 
-This node/nodelet merges the depth images of two depth cameras (RGBD, Time of Flight, Structured Light etc.) into one depth image. 
+This ROS package merges the depth images of two depth cameras (RGBD, Time of Flight, Structured Light etc.) into one depth image. 
+
+It's actually twofold. One node merges two point clouds and the other converts a point cloud from a certain point of view into a depth image. By chaining multiple merge_pcl nodes/nodelets, it's possible to merge even more cameras. At a cost though. 
 
 ## Why is this interesting?
 
