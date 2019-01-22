@@ -1,0 +1,5 @@
+<library path="lib/libmerge_pcl_nodelet">
+    <class name="ap34/MergePCLNodelet" type="ap34::MergePCLNodelet" base_class_type="nodelet::Nodelet">
+        <description>Nodelet to merge two pointclouds into one</description>
+    </class>
+</library>

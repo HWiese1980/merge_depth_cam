@@ -1,0 +1,5 @@
+<library path="lib/libpinhole_cam_nodelet">
+    <class name="ap34/PinholePCLCamNodelet" type="ap34::PinholePCLCamNodelet" base_class_type="nodelet::Nodelet">
+        <description>Nodelet presenting a pinhole cam model to a PCL pointcloud to a depth image</description>
+    </class>
+</library>
