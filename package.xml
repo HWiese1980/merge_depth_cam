@@ -62,5 +62,6 @@
     <export>
         <nodelet plugin="${prefix}/pinhole_cam.xml" />
         <nodelet plugin="${prefix}/merge_pcl.xml" />
+        <nodelet plugin="${prefix}/merge_depth.xml" />
     </export>
 </package>
