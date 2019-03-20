@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
     <name>merged_depth_cam</name>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
     <description>Merge two RGBD camera depth streams into one</description>
 
     <!-- One maintainer tag required, multiple allowed, one person per tag -->
