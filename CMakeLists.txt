@@ -95,6 +95,7 @@ find_package(OpenCV REQUIRED)
 # Generate dynamic reconfigure parameters in the 'cfg' folder
 generate_dynamic_reconfigure_options(
    cfg/PinholePCLCam.cfg
+   cfg/ModCamInfo.cfg
 )
 
 ###################################
@@ -132,6 +133,9 @@ add_library(pinhole_cam_nodelet src/pinhole_cam_nodelet.cpp src/PinholePCLCam.cp
 
 add_executable(merge_pcl_node src/merge_pcl_node.cpp src/MergePCL.cpp)
 add_library(merge_pcl_nodelet src/merge_pcl_nodelet.cpp src/MergePCL.cpp)
+
+add_executable(merge_depth_node src/merge_depth_node.cpp src/MergeDepth.cpp)
+add_library(merge_depth_nodelet src/merge_depth_nodelet.cpp src/MergeDepth.cpp)
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
@@ -200,6 +204,16 @@ target_link_libraries(merge_pcl_node
 target_link_libraries(merge_pcl_nodelet
   ${catkin_LIBRARIES}
   ${PCL_LIBRARIES}
+)
+
+target_link_libraries(merge_depth_node
+  ${catkin_LIBRARIES}
+        ${OpenCV_LIBRARIES}
+)
+
+target_link_libraries(merge_depth_nodelet
+  ${catkin_LIBRARIES}
+        ${OpenCV_LIBRARIES}
 )
 
 #############
