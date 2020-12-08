@@ -1,0 +1,44 @@
+<launch>
+
+  <arg name="manager"             default="merge_depth_manager"/>
+
+  <arg name="pcl1_topic"          default="pcl_1"/>
+  <arg name="pcl2_topic"          default="pcl_2"/>
+  <arg name="merged_depth_topic"  default="pcl_depth"/>
+
+  <arg name="target_frame"        default="virtual_cam_frame"/>
+  <arg name="depth_image_width"   default="640"/>
+  <arg name="depth_image_height"  default="960"/>
+  <arg name="stride"              default="1"/>
+  <arg name="target_width"        default="320"/>
+  <arg name="blob_size"           default="1"/>
+  <arg name="focal_length"        default="1000.0"/>
+  <arg name="rescale_factor"      default="1.0"/>
+
+  <!-- <node pkg="nodelet" type="nodelet" name="$(arg manager)" output="screen"  launch-prefix=""
+    args="manager">
+  </node> -->
+
+  <node pkg="nodelet" type="nodelet" name="merge_pcl_nodelet" output="screen"  launch-prefix=""
+    args="standalone ap34/MergePCLNodelet">
+    <remap from="~input_pcl_a"        to="$(arg pcl1_topic)"/>
+    <remap from="~input_pcl_b"        to="$(arg pcl2_topic)"/>
+    <remap from="~output_merged_pcl"  to="pcl_merge"/>
+    <param name="target_frame"        value="$(arg target_frame)"/>
+  </node>
+
+  <node pkg="nodelet" type="nodelet" name="pinhole_cam_nodelet" output="screen"  launch-prefix=""
+    args="standalone ap34/PinholePCLCamNodelet">
+    <remap from="~input_pcl"            to="pcl_merge"/>
+    <remap from="~output_merged_depth"  to="$(arg merged_depth_topic)"/>
+    <param name="virtual_cam_frame"     value="$(arg target_frame)"/>
+    <param name="depth_image_width"     value="$(arg depth_image_width)"/>
+    <param name="depth_image_height"    value="$(arg depth_image_height)"/>
+    <param name="stride"                value="$(arg stride)"/>
+    <param name="target_width"          value="$(arg target_width)"/>
+    <param name="blob_size"             value="$(arg blob_size)"/>
+    <param name="focal_length"          value="$(arg focal_length)"/>
+    <param name="rescale_factor"        value="$(arg rescale_factor)"/>
+  </node>
+
+</launch>
