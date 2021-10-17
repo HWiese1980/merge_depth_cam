@@ -6,7 +6,8 @@
 #include <cv_bridge/cv_bridge.h>
 #include <sensor_msgs/image_encodings.h>
 #include <opencv2/imgproc/imgproc.hpp>
-#include <opencv-3.3.1-dev/opencv/cv.hpp>
+// #include <opencv-3.3.1-dev/opencv/cv.hpp>
+#include <opencv2/core.hpp>
 
 
 using namespace sensor_msgs;
