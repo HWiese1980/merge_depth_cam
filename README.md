@@ -1,3 +1,7 @@
+# Disclaimer
+
+I kind of put this project on the backburner for the time being. I'll still occasionally look for new issues and try to reply, but I cannot currently continue development because I'm lacking the necessary hardware. I'll also occasionally check for pull request. So if you feel like adding or improving something, feel wholeheartedly invited to do so! 
+
 # merge_depth_cam (Robot Operating System Package)
 
 ## What is it?
